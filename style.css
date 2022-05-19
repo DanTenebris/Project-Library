@@ -1,0 +1,454 @@
+@import url('https://fontlibrary.org//face/destruck-v1');
+
+:root {
+  --firstD-color: #23f346;
+  --secondD-color: #1cbd37;
+  --first-color: #4dff4d;
+  --second-color: #99ff99;
+  --third-color: #ccffcc;
+  --fourth-color: #f0fdf4;
+  --error-color: #a70101;
+  --error-light-color: #e40000;
+
+  --greenD-filter: invert(31%) sepia(43%) saturate(2392%) hue-rotate(107deg) brightness(99%) contrast(104%);
+
+  --cheked-color: invert(53%) sepia(92%) saturate(491%) hue-rotate(79deg) brightness(91%) contrast(90%);
+  --notCheked-color: invert(15%) sepia(53%) saturate(5396%) hue-rotate(353deg) brightness(91%) contrast(115%);
+  ;
+
+  --rotate-minus: rotate(-0.05turn);
+  --rotate-plus: rotate(0.05turn);
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--fourth-color);
+  font-family: sans-serif;
+}
+
+body * {
+  font-size: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--third-color);
+}
+
+header>* {
+  display: flex;
+  gap: 5px;
+}
+
+header> :first-child {
+  background-color: var(--secondD-color);
+  position: relative;
+  border-radius: 0 50% 50% 0;
+}
+
+.odin-logo-div {
+  background-color: var(--secondD-color);
+  padding: 5px;
+}
+
+.odin-logo {
+  position: relative;
+  left: -1px;
+  height: 70px;
+  width: auto;
+}
+
+.odin-logo-div+span {
+  padding-right: 20px;
+  color: white;
+  font-size: 2rem;
+  font-family: 'DestruckDemiBold', sans-serif;
+}
+
+:is(header span, header img) {
+  align-self: center;
+}
+
+.btn {
+  background-color: var(--first-color);
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.btn img {
+  height: 35px;
+}
+
+.btn:hover {
+  background-color: var(--firstD-color);
+  cursor: default;
+}
+
+.btn:hover img {
+  animation: addBook 500ms;
+}
+
+@keyframes addBook {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 50ch));
+  grid-template-rows: min-content;
+  grid-auto-rows: min-content;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+main.empty {
+  grid-template-columns: none;
+}
+
+main.empty>* {
+  font-size: 2rem;
+  font-family: 'DestruckDemiBold', sans-serif;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 10ch 1fr;
+  background-color: var(--third-color);
+  border-radius: 50px 0 0 50px;
+}
+
+.book-img {
+  grid-row: 1 / -1;
+  align-self: center;
+  max-height: 15ch;
+  max-width: 95px;
+  border-radius: 49px 0 0 49px;
+  padding: 5px;
+}
+
+.book-img:hover {
+  border-radius: 0;
+  transform: scale(1.4);
+}
+
+.cardContent {
+  display: grid;
+  grid-template-rows: min-content;
+  grid-auto-rows: 1fr;
+  align-content: space-between;
+  grid-template-columns: 1fr;
+}
+
+.upperContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px 0 0 5px;
+  gap: 5px;
+}
+
+.upperContent> :first-child {
+  width: 100%;
+}
+
+.book-name {
+  font-weight: bold;
+  font-family: serif;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+.moreInfo {
+  background-color: var(--second-color);
+  padding: 10px 2px 5px;
+  border-radius: 20px 0 0 0;
+}
+
+.moreInfo:hover {
+  background-color: var(--firstD-color);
+}
+
+.bottomContent {
+  justify-self: end;
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  background-color: var(--second-color);
+  border-radius: 25px 0 0 0;
+}
+
+.icon {
+  filter: var(--greenD-filter);
+  padding: 5px 7px;
+}
+
+.icon:hover {
+  transform: scale(1.3);
+}
+
+/* The modal code is from www.w3schools.com/howto/howto_css_modals.asp */
+:is(.div-modal-form, .confirmation-div) {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+:is(.div-modal-form.active, .confirmation-div.active) {
+  display: block;
+}
+
+.modal-form {
+  background-color: var(--fourth-color);
+  margin: auto;
+  padding: 10px;
+  width: 99%;
+  display: grid;
+  align-items: center;
+  gap: 15px;
+}
+
+.form-title {
+  font-size: 1.3rem;
+}
+
+.input-div {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: min-content;
+  height: 100%;
+}
+
+.input-div:nth-last-child(-n+3) {
+  grid-template-rows: 1fr;
+}
+
+.input-div:not(.input-div:nth-last-child(-n+3)) {
+  background-color: var(--second-color);
+}
+
+.label {
+  padding: 5px;
+  align-self: center;
+}
+
+input {
+  min-height: 1.8rem;
+}
+
+.error {
+  display: none;
+}
+
+.error.active {
+  display: block;
+  padding: 5px;
+  background-color: var(--error-color);
+  color: white;
+  font-weight: bold;
+}
+
+.checkboxContainer {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 5px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.checkboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxContainer input:focus:invalid {
+  outline: none;
+  border-color: #900;
+  background-color: #fdd;
+  box-shadow: 1px 1px 4px #900;
+}
+
+.checkmark-container {
+  top: -4px;
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.checkmark {
+  display: block;
+  top: -4px;
+  height: 100%;
+  background: no-repeat url(media/icon/book-outline.svg) center;
+  background-size: auto 100%;
+  filter: var(--notCheked-color);
+}
+
+.checkboxContainer:hover .checkmark-container {
+  background-color: var(--second-color);
+}
+
+.checkboxContainer:hover input:checked~.checkmark-container {
+  background-color: var(--second-color);
+}
+
+.checkboxContainer input:checked~.checkmark-container>.checkmark {
+  background: no-repeat url(media/icon/book.svg) center;
+  filter: var(--cheked-color);
+  background-size: auto 100%;
+}
+
+:is(.submit, .editing, .confirm-delete) {
+  background-color: var(--second-color);
+}
+
+:is(.submit, .editing, .cancelBook, .confirmation-modal > button) {
+  height: 1.8rem;
+  border: none;
+}
+
+:is(.submit:hover, .editing:hover, .confirm-delete:hover) {
+  border: 1px solid;
+}
+
+:is(.cancelBook, .cancel-delete) {
+  background-color: var(--error-color);
+  color: white;
+}
+
+:is(.cancelBook:hover, .cancel-delete:hover) {
+  border: 1px solid;
+  background-color: var(--error-light-color);
+}
+
+.confirmation-modal {
+  background-color: var(--fourth-color);
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  display: grid;
+  align-items: center;
+  gap: 15px;
+}
+
+.confirmation-modal>button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+footer {
+  margin-top: auto;
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  background-color: var(--second-color);
+}
+
+footer>a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+footer img {
+  filter: var(--greenD-filter);
+}
+
+footer a:hover img {
+  animation-name: githubLogo;
+  animation-duration: 350ms;
+}
+
+@keyframes githubLogo {
+  10% {
+    transform: var(--rotate-minus);
+  }
+
+  20% {
+    transform: var(--rotate-plus);
+  }
+
+  30% {
+    transform: var(--rotate-minus);
+  }
+
+  40% {
+    transform: var(--rotate-plus);
+  }
+
+  50% {
+    transform: var(--rotate-minus);
+  }
+
+  60% {
+    transform: var(--rotate-plus);
+  }
+
+  70% {
+    transform: var(--rotate-minus);
+  }
+
+  80% {
+    transform: var(--rotate-plus);
+  }
+
+  90% {
+    transform: var(--rotate-minus);
+  }
+}
+
+
+
+@media (min-width:700px) {
+  .modal-form {
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-title {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .checkmark-container {
+    height: 100%;
+    width: 3rem;
+  }
+
+  .confirmation-modal {
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .confirmation-modal p {
+    grid-column: 1 / -1;
+  }
+}

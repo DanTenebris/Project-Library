@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="reset2.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Project: Library</title>
+</head>
+
+<body>
+  <header>
+    <div>
+      <div class="odin-logo-div">
+        <img class="odin-logo" src="media/odin-lined.png" alt="The Odin Project Logo">
+      </div>
+      <span>Library</span>
+    </div>
+
+    <div class="btn">
+      <span>Add a book</span><img src="media/icon/plus-circle-outline.svg" alt="plus circle outline">
+    </div>
+  </header>
+
+  <main></main>
+
+  <div class="div-modal-form">
+    <form action="#" class="modal-form" novalidate>
+      <p class="form-title">Please fill in the necessary information.</p>
+      <div class="input-div">
+        <label for="title" class="label">Book Title<abbr title="This field is mandatory"
+            aria-label="required"> *</abbr></label>
+        <input type="text" name="title" id="title" class="input"
+          placeholder="The Death Mage Who Doesn't Want a Fourth Time" maxlength="150" required>
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="input-div">
+        <label for="author" class="label">Book Author<abbr title="This field is mandatory"
+            aria-label="required"> *</abbr></label>
+        <input type="text" name="author" id="author" class="input" placeholder="Densuke" maxlength="15" required>
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="input-div">
+        <label for="chapter" class="label">Chapters<abbr title="This field is mandatory"
+            aria-label="required"> *</abbr></label>
+        <input type="number" name="chapter" id="chapter" class="input" placeholder="300" max="15000" min="1" required>
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <!-- Image Link -->
+      <div class="input-div">
+        <label for="coverLink" class="label">Book Cover Link</label>
+        <input type="url" name="coverLink" id="coverLink" class="input" placeholder="https://lightnovelbastion.com/wp-content/uploads/2019/04/DMV6.1-193x278.png" maxlength="100">
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="input-div">
+        <label for="infoLink" class="label">Link for more information</label>
+        <input type="url" name="infoLink" id="infoLink" class="input" placeholder="https://www.novelupdates.com/series/the-death-mage-who-doesnt-want-a-fourth-time/" maxlength="100">
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <!-- CheckBox -->
+      <div class="input-div">
+        <label for="read" class="label checkboxContainer">
+          <span>Read</span>
+          <input type="checkbox" name="read" id="read">
+          <div class="checkmark-container"><span class="checkmark"></span></div>
+        </label>
+      </div>
+
+      <div class="input-div">
+        <button type="button" class="submit">Save Book</button>
+      </div>
+
+      <div class="input-div">
+        <button type="button" class="cancelBook">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="confirmation-div">
+    <div class="confirmation-modal">
+      <p>Do you want to delete the book <strong>“<span class="book-title-message">Book title</span>”</strong>? This action is permanent.</p>
+      <button class="confirm-delete" type="button">Delete
+        <img src="media/icon/trash-can-outline.svg" alt="trash can">
+      </button>
+      <button class="cancel-delete" type="button">Cancel</button>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://github.com/DanTenebris?tab=repositories&q=&type=&language=&sort=stargazers">DanTenebris <img src="media/icon/github.svg" alt="Github Logo"></a>
+  </footer>
+</body>
+
+</html>
