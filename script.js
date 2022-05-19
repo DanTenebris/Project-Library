@@ -1,4 +1,3 @@
-
 //localStorage.removeItem('library');
 let myLibrary;
 
@@ -259,26 +258,6 @@ function toggleConfirmationModalVisibility(flag = true) {
     confirmationModalDiv.className = 'confirmation-div';
   }
 }
-
-//EDITING
-/*function toggleEditFormButton() {
-    const editSubmitButton = document.querySelector('.submit');
-    const newEditButton = editSubmitButton.cloneNode(true);
-    editSubmitButton.parentNode.replaceChild(newEditButton, editSubmitButton);
-
-    return editSubmitButton;
- /* else {
-    let submitButton = document.querySelector('.submit');
-
-    if (!submitButton) {
-      const editSubmitButton = document.querySelector('.editing');
-      submitButton = editSubmitButton.cloneNode(true);
-      editSubmitButton.parentNode.replaceChild(submitButton, editSubmitButton);
-      submitButton.className = 'submit';
-    }
-    return submitButton;
-  } 
-}*/
 
 function deleteInputValues() {
   for (const input of inputs) {

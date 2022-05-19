@@ -322,16 +322,16 @@ input {
   background-size: auto 100%;
 }
 
-:is(.submit, .editing, .confirm-delete) {
+:is(.submit, .confirm-delete) {
   background-color: var(--second-color);
 }
 
-:is(.submit, .editing, .cancelBook, .confirmation-modal > button) {
+:is(.submit, .cancelBook, .confirmation-modal > button) {
   height: 1.8rem;
   border: none;
 }
 
-:is(.submit:hover, .editing:hover, .confirm-delete:hover) {
+:is(.submit:hover, .confirm-delete:hover) {
   border: 1px solid;
 }
 
@@ -365,7 +365,6 @@ input {
 
 footer {
   margin-top: auto;
-  background-color: gainsboro;
   display: flex;
   justify-content: center;
   background-color: var(--second-color);
