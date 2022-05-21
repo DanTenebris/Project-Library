@@ -160,6 +160,10 @@ main.empty>* {
   width: 100%;
 }
 
+.upperContent > a {
+  margin-left: auto;
+}
+
 .book-name {
   font-weight: bold;
   font-family: serif;
@@ -204,6 +208,7 @@ a {
   position: fixed;
   z-index: 1;
   padding-top: 100px;
+  padding-bottom: 100px;
   left: 0;
   top: 0;
   width: 100%;
