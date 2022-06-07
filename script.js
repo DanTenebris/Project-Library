@@ -1,6 +1,17 @@
 //localStorage.removeItem('library');
 let myLibrary;
 
+const Book = class {
+  constructor(title, author, chapters, image = false, info = false, read = false) {
+    this.title = title;
+    this.author = author;
+    this.chapters = chapters;
+    this.image = image;
+    this.info = info;
+    this.read = read;
+  }
+}
+
 if (JSON.parse(localStorage.getItem('library'))) {
   myLibrary = JSON.parse(localStorage.getItem('library'));
   console.log(myLibrary);
@@ -11,16 +22,6 @@ if (JSON.parse(localStorage.getItem('library'))) {
   myLibrary.push(new Book('That Time I Got Reincarnated as a Slime', 'Fuse', '418', 'https://cdn.novelupdates.com/images/2020/07/slime_softcover_1.jpg', 'https://www.novelupdates.com/series/tensei-shitara-slime-datta-ken/', true));
   myLibrary.push(new Book('Release that Witch', 'Er Mu', '1498', 'https://cdn.novelupdates.com/images/2017/07/Release-that-Witch.jpg', '', true));
   myLibrary.push(new Book('This book has a long long long long long long long long name. But because the font size is small, I don\'t think it would be this long', 'Me', '1000'));
-}
-
-
-function Book(title, author, chapters, image = false, info = false, read = false) {
-  this.title = title;
-  this.author = author;
-  this.chapters = chapters;
-  this.image = image;
-  this.info = info;
-  this.read = read;
 }
 
 
